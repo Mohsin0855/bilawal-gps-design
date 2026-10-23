@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+ <androidx.constraintlayout.widget.Guideline
+     android:id="@+id/photobottom"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     app:layout_constraintGuide_percent="0.67"/>
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/onboarding2"
+        app:layout_constraintHeight_percent="0.69"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitXY"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/Multiple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="center"
+        android:text="Muitiple Templates"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/photobottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Make your photo organization easy with\ncustomizable templates."
+        android:textSize="14sp"
+        android:textColor="#94a3b8"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Multiple"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/indicator2"
+        android:contentDescription="@null"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="next"
+        android:textColor="@color/white"
+        android:background="@drawable/next_btn"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/indicator"
+        app:layout_constraintBottom_toBottomOf="@id/indicator"
+        android:layout_marginEnd="16dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
