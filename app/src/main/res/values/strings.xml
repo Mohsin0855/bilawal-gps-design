@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GPS Map Camera</string>
+    <string name="continue_free_trial">Continue to Free Trial</string>
+    <string name="continue_text">Continue</string>
 </resources>

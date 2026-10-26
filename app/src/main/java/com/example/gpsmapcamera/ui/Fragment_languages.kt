@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.gpsmapcamera.R
 import com.example.gpsmapcamera.adapter.language.LanguageAdapter
 import com.example.gpsmapcamera.databinding.FragmentLanguagesBinding
 
@@ -37,7 +39,9 @@ class LanguagesFragment : Fragment() {
 
         val adapter = LanguageAdapter(languageList) { chosenLang ->
             selectedLanguage = chosenLang
-            binding.btnDone.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#6366F1"))
+            binding.btnDone.backgroundTintList = android.content.res.ColorStateList.valueOf(
+                android.graphics.Color.parseColor("#6366F1")
+            )
         }
 
         binding.rvLanguages.layoutManager = GridLayoutManager(requireContext(), 2)
@@ -47,11 +51,12 @@ class LanguagesFragment : Fragment() {
             if (selectedLanguage.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "Please select a language", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireContext(), "Selected: $selectedLanguage", Toast.LENGTH_SHORT).show()
-                // TODO: Save language preference and navigate to main screen
+                // TODO: Save language preference (SharedPreferences) if needed
+                findNavController().navigate(R.id.action_languagesFragment_to_onboarding1Fragment)
             }
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

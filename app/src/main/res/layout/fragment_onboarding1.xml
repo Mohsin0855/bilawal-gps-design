@@ -43,7 +43,6 @@
         android:id="@+id/tvdescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
@@ -51,6 +50,7 @@
         android:textColor="#94a3b8"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/geo" />
 
     <ImageView
