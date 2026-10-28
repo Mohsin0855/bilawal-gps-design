@@ -79,8 +79,15 @@
         <action
             android:id="@+id/action_homeFragment_to_subscriptionFragment"
             app:destination="@id/subscriptionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
 
-
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.gpsmapcamera.ui.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_setting" />
 
 </navigation>

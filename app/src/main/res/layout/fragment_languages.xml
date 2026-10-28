@@ -32,12 +32,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSelectLanguageTitle"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineHalf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,7 +39,7 @@
         android:layout_marginTop="16dp"
         android:scrollbars="none"
         app:layout_constraintTop_toBottomOf="@+id/tvSelectLanguageTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/guidelineHalf"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 

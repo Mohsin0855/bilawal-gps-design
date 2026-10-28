@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.WindowCompat.enableEdgeToEdge
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.gpsmapcamera.R
@@ -27,30 +26,32 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.camTranslatorText.isSelected = true
         setupClicks()
-        enableEdgeToEdge()
     }
 
     private fun setupClicks() = with(binding) {
         smallCrown.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_subscriptionFragment)
         }
-
         setting.setOnClickListener {
-            // TODO: settings screen par navigate karo
-            showMessage("Settings")
+            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
         }
 
 
-        editBtn.setOnClickListener {
-            // TODO: gallery picker / edit photo screen
-            showMessage("Edit Photo")
-        }
+        editBtn.setOnClickListener { showMessage("Edit Photo") }
 
-        camera.setOnClickListener {
-            // TODO: camera screen par navigate karo
-            showMessage("Camera")
-        }
+        camera.setOnClickListener { showMessage("Camera") }
+        video.setOnClickListener { showMessage("Video") }
+
+        qrCode.setOnClickListener { showMessage("QR Code") }
+        directChat.setOnClickListener { showMessage("Direct Chat") }
+
+        attendence.setOnClickListener { showMessage("Attendence") }
+        camTranslator.setOnClickListener { showMessage("CamTranslator") }
+
+        savedGirl1.setOnClickListener { showMessage("Saved Images") }
+        savedGirl2.setOnClickListener { showMessage("Saved Videos") }
     }
 
     private fun showMessage(text: String) {

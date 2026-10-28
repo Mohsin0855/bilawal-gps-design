@@ -10,12 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.34" />
     <ImageView
         android:id="@+id/photo"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent=".6"
+        app:layout_constraintHeight_percent=".5"
         android:src="@drawable/subscription_screen"
         android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,6 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
+        android:id="@+id/closebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/closebtn"
@@ -43,7 +44,7 @@
         android:id="@+id/access_all_feature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Access All Features"
+        android:text="@string/access_all_features"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -53,12 +54,12 @@
         app:layout_constraintTop_toBottomOf="@id/crown"/>
     <TextView
         android:id="@+id/option1"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/tick"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
-        android:text="Customize stamps freely"
+        android:text="@string/customize_stamps_freely"
         android:fontFamily="@font/poppins_medium"
         android:textSize="12sp"
         android:layout_marginStart="20dp"
@@ -68,14 +69,14 @@
         app:layout_constraintTop_toBottomOf="@id/access_all_feature" />
     <TextView
         android:id="@+id/option2"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:singleLine="true"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:drawablePadding="10dp"
         android:layout_marginStart="20dp"
         android:ellipsize="none"
-        android:text="A wide selection of templates"
+        android:text="@string/a_wide_selection_of_templates"
         android:fontFamily="@font/poppins_medium"
         android:textSize="12sp"
         android:layout_marginTop="10dp"
@@ -86,13 +87,13 @@
         />
     <TextView
         android:id="@+id/option3"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/tick"
         android:gravity="center_vertical"
         android:drawablePadding="10dp"
         android:layout_marginStart="20dp"
-        android:text="No ads forever"
+        android:text="@string/no_ads_forever"
         android:fontFamily="@font/poppins_medium"
         android:textSize="12sp"
         android:layout_marginTop="10dp"
@@ -103,11 +104,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/box1"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/option3">
@@ -129,6 +129,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="Yearly"
+            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/radiobutton"
             app:layout_constraintTop_toTopOf="parent" />
@@ -140,6 +141,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="12dp"
             android:text="Rs 3,600.00"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/boxtext1"
             app:layout_constraintTop_toBottomOf="@id/boxtext1"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -150,6 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="17dp"
             android:text="Rs 69.23/Week"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -166,7 +169,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/box1"
-        android:layout_marginTop="12dp">
+        android:layout_marginTop="16dp">
         <ImageView
             android:id="@+id/radiobutton2"
             android:layout_width="wrap_content"
@@ -178,17 +181,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
+
         <TextView
             android:id="@+id/boxtext2nd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Weekly"
             android:textSize="14sp"
+            android:textColor="@color/black"
             android:layout_marginStart="42dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="23dp"
             app:layout_constraintStart_toStartOf="@id/radiobutton2"
-            app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -198,13 +200,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs 69.23/Week"
-            android:layout_marginVertical="17dp"
-            android:layout_marginStart="162dp"
-            android:layout_marginEnd="17dp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="16dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -225,7 +226,7 @@
 
     <TextView
         android:id="@+id/trial_description"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
@@ -239,8 +240,8 @@
 
     <TextView
         android:id="@+id/btnfreetrial"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:background="@drawable/green_rectangle"
         android:gravity="center"

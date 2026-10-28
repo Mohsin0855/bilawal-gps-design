@@ -1,83 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
 
-    <TextView
-        android:id="@+id/gps"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo"
-        android:text="GPS"
-        android:textColor="#6366F1"
-        android:textSize="30sp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="54dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:id="@+id/gps_underline"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginTop="-6dp"
-        android:background="#6366F1"
-        app:layout_constraintTop_toBottomOf="@id/gps"
-        app:layout_constraintStart_toStartOf="@id/gps"
-        app:layout_constraintEnd_toEndOf="@id/gps"/>
+        <TextView
+            android:id="@+id/gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo"
+            android:text="@string/gps"
+            android:textColor="#6366F1"
+            android:textSize="24sp"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/map_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:text="  Map Camera"
-        android:textColor="#262537"
-        android:textSize="22sp"
-        android:layout_marginTop="63dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/gps"/>
+        <View
+            android:id="@+id/gps_underline"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="#6366F1"
+            app:layout_constraintEnd_toEndOf="@id/gps"
+            app:layout_constraintStart_toStartOf="@id/gps"
+            app:layout_constraintTop_toBottomOf="@id/gps" />
 
-    <ImageView
-        android:id="@+id/small_crown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/small_crown"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="65dp"
-        android:padding="8dp"
-        app:layout_constraintStart_toEndOf="@id/map_camera"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/map_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:text="@string/map_camera"
+            android:textColor="#262537"
+            android:textSize="22sp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gps" />
 
-    <ImageView
-        android:id="@+id/setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/setting_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="14dp"
-        android:padding="8dp"
-        app:layout_constraintStart_toEndOf="@id/small_crown"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/settings"
+            android:padding="8dp"
+            android:src="@drawable/setting_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <ImageView
+            android:id="@+id/small_crown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/premium"
+            android:padding="8dp"
+            android:src="@drawable/small_crown"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/setting" />
 
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="6dp"
         android:fillViewport="true"
         android:overScrollMode="never"
         android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@id/gps_underline"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scroll_content"
@@ -87,13 +94,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rectangle_box"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/home_rectangle"
-                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="16dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/home_rectangle"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.Guideline
@@ -107,69 +114,75 @@
                     android:id="@+id/edit_photo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="Edit photo"
+                    android:text="@string/edit_photo"
+                    android:layout_marginStart="16dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/guideline"/>
+                    app:layout_constraintEnd_toEndOf="@id/guideline"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add location to \nyour existing photos"
-                    android:textSize="14sp"
-                    android:textColor="#A6AECB"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="14dp"
                     android:fontFamily="@font/poppins_medium"
+                    android:text="@string/add_location_to_nyour_existing_photos"
+                    android:textColor="@color/Slate"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/edit_photo"/>
+                    app:layout_constraintTop_toBottomOf="@id/edit_photo" />
 
                 <ImageView
                     android:id="@+id/girl"
                     android:layout_width="180dp"
-                    android:layout_height="150dp"
+                    android:layout_height="165dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/woman"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/stars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/stars"
                     android:layout_marginTop="14dp"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="26dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/stars"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/edit_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit Photo"
-                    android:textColor="@color/white"
+                    android:layout_width="102dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_photo_btn"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="6dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/guideline"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    android:text="@string/edit_photo"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
                     android:id="@+id/shapes"
-                    android:layout_width="50dp"
-                    android:layout_height="70dp"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginEnd="74dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/shapes"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="80dp"
-                    app:layout_constraintTop_toBottomOf="@id/description"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -177,34 +190,35 @@
                 android:id="@+id/main_features_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MAIN FEATURES"
-                android:fontFamily="@font/poppins_semibold"
-                android:textColor="#262537"
-                android:textSize="14sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/main_features"
+                android:textColor="#262537"
+                android:textSize="14sp"
+                android:includeFontPadding="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rectangle_box"/>
+                app:layout_constraintTop_toBottomOf="@id/rectangle_box" />
 
             <View
                 android:id="@+id/mainfeature_underline"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:layout_marginTop="-6dp"
+
                 android:background="#6366F1"
-                app:layout_constraintTop_toBottomOf="@id/main_features_heading"
+                app:layout_constraintEnd_toEndOf="@id/main_features_heading"
                 app:layout_constraintStart_toStartOf="@id/main_features_heading"
-                app:layout_constraintEnd_toEndOf="@id/main_features_heading"/>
+                app:layout_constraintTop_toBottomOf="@id/main_features_heading" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/main_features"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_margin="16dp"
                 android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mainfeature_underline">
+                app:layout_constraintTop_toBottomOf="@id/main_features_heading">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/features_center"
@@ -216,9 +230,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/camera"
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/camera_bg"
                     android:clickable="true"
                     android:focusable="true"
@@ -233,9 +246,9 @@
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Camera"
+                        android:text="@string/camera"
                         android:textColor="#262537"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -255,8 +268,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="4dp"
                         android:contentDescription="@null"
                         android:src="@drawable/camera"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintTop_toBottomOf="@id/camera_arrow"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -266,8 +282,7 @@
                     android:id="@+id/video"
                     android:layout_width="0dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="8dp"
                     android:background="@drawable/lime_bg"
                     android:clickable="true"
                     android:focusable="true"
@@ -282,9 +297,9 @@
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Video"
+                        android:text="@string/video"
                         android:textColor="#262537"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -304,6 +319,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
                         android:contentDescription="@null"
                         android:src="@drawable/vedio"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -317,30 +333,29 @@
                 android:id="@+id/explore_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Explore More"
-                android:fontFamily="@font/poppins_semibold"
-                android:textColor="#262537"
-                android:textSize="14sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="14dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/explore_more"
+                android:textColor="#262537"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_features"/>
+                app:layout_constraintTop_toBottomOf="@id/main_features" />
 
             <View
                 android:id="@+id/explore_heading_underline"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:layout_marginTop="-6dp"
                 android:background="#6366F1"
-                app:layout_constraintTop_toBottomOf="@id/explore_heading"
+                app:layout_constraintEnd_toEndOf="@id/explore_heading"
                 app:layout_constraintStart_toStartOf="@id/explore_heading"
-                app:layout_constraintEnd_toEndOf="@id/explore_heading"/>
+                app:layout_constraintTop_toBottomOf="@id/explore_heading" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/explore_more"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_margin="16dp"
                 android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -357,8 +372,7 @@
                     android:id="@+id/qr_code"
                     android:layout_width="0dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/qr_rectangle"
                     android:clickable="true"
                     android:focusable="true"
@@ -373,9 +387,9 @@
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Qr Code"
+                        android:text="@string/qr_code"
                         android:textColor="#262537"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -397,6 +411,7 @@
                         android:layout_marginEnd="10dp"
                         android:contentDescription="@null"
                         android:src="@drawable/qr"
+                        android:layout_marginBottom="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -406,8 +421,7 @@
                     android:id="@+id/direct_chat"
                     android:layout_width="0dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="8dp"
                     android:background="@drawable/direct_chat_rectangle"
                     android:clickable="true"
                     android:focusable="true"
@@ -422,9 +436,9 @@
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Direct Chat"
+                        android:text="@string/direct_chat"
                         android:textColor="#262537"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -446,6 +460,7 @@
                         android:layout_marginEnd="10dp"
                         android:contentDescription="@null"
                         android:src="@drawable/direct_chat"
+                        android:layout_marginBottom="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -459,6 +474,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/white"
+                android:layout_marginHorizontal="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/explore_more">
@@ -474,8 +490,7 @@
                     android:id="@+id/attendence"
                     android:layout_width="0dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/attendence_bg"
                     android:clickable="true"
                     android:focusable="true"
@@ -490,9 +505,9 @@
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Attendence"
+                        android:text="@string/attendence"
                         android:textColor="#262537"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -514,6 +529,7 @@
                         android:layout_marginEnd="10dp"
                         android:contentDescription="@null"
                         android:src="@drawable/attendence_icon"
+                        android:layout_marginBottom="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -523,8 +539,7 @@
                     android:id="@+id/cam_translator"
                     android:layout_width="0dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="8dp"
                     android:background="@drawable/direct_chat_rectangle"
                     android:clickable="true"
                     android:focusable="true"
@@ -534,17 +549,23 @@
 
                     <TextView
                         android:id="@+id/cam_translator_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
                         android:layout_marginTop="12dp"
+                        android:layout_marginEnd="6dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="CamTranslator"
+                        android:text="@string/camtranslator"
                         android:textColor="#262537"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        app:layout_constraintEnd_toStartOf="@id/cam_translator_arrow"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
                     <ImageView
                         android:id="@+id/cam_translator_arrow"
                         android:layout_width="wrap_content"
@@ -563,6 +584,7 @@
                         android:layout_marginEnd="10dp"
                         android:contentDescription="@null"
                         android:src="@drawable/cam_translator_icon"
+                        android:layout_marginBottom="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -574,30 +596,83 @@
                 android:id="@+id/saved_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SAVED"
-                android:fontFamily="@font/poppins_semibold"
-                android:textColor="#262537"
-                android:textSize="14sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="14dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/saved"
+                android:textColor="#262537"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/more_options"/>
+                app:layout_constraintTop_toBottomOf="@id/more_options" />
 
             <View
                 android:id="@+id/saved_underline"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:layout_marginTop="-6dp"
                 android:background="#6366F1"
-                app:layout_constraintTop_toBottomOf="@id/saved_heading"
+                app:layout_constraintEnd_toEndOf="@id/saved_heading"
                 app:layout_constraintStart_toStartOf="@id/saved_heading"
-                app:layout_constraintEnd_toEndOf="@id/saved_heading"/>
+                app:layout_constraintTop_toBottomOf="@id/saved_heading" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/saved"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/saved_underline">
+
+                <ImageView
+                    android:id="@+id/saved_girl1"
+                    android:layout_width="0dp"
+                    android:layout_height="146dp"
+                    android:layout_marginStart="2dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/girl_pic_saved"
+                    app:layout_constraintEnd_toStartOf="@id/saved_girl2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/saved_girl2"
+                    android:layout_width="0dp"
+                    android:layout_height="146dp"
+                    android:layout_marginEnd="2dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/second_girl_saved"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/saved_girl1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/image1_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/images"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/saved_girl1" />
+
+                <TextView
+                    android:id="@+id/image2_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/videos"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/saved_girl2"
+                    app:layout_constraintTop_toBottomOf="@id/saved_girl2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("com.google.devtools.ksp") // Yahan kapt ki bajaye ksp likha
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -56,7 +56,7 @@ dependencies {
     // --- Room Database Dependencies (Using KSP) ---
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1") // Yahan kapt ki jagah ksp use ho raha hai
+    ksp("androidx.room:room-compiler:2.6.1")
 
     // --- Coroutines ---
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
@@ -65,4 +65,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
 }
