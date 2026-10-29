@@ -76,12 +76,19 @@
         android:name="com.example.gpsmapcamera.ui.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
+
         <action
             android:id="@+id/action_homeFragment_to_subscriptionFragment"
             app:destination="@id/subscriptionFragment" />
+
         <action
             android:id="@+id/action_homeFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentCamera"
+            app:destination="@id/fragmentCamera" />
+
     </fragment>
 
     <fragment
@@ -89,5 +96,10 @@
         android:name="com.example.gpsmapcamera.ui.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/fragmentCamera"
+        android:name="com.example.gpsmapcamera.ui.FragmentCamera"
+        android:label="Camera"
+        tools:layout="@layout/fragment_camera" />
 
 </navigation>

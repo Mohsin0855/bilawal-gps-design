@@ -26,36 +26,78 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.camTranslatorText.isSelected = true
         setupClicks()
     }
 
     private fun setupClicks() = with(binding) {
+
         smallCrown.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_subscriptionFragment)
+            findNavController().navigate(
+                R.id.action_homeFragment_to_subscriptionFragment
+            )
         }
+
         setting.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
+            findNavController().navigate(
+                R.id.action_homeFragment_to_settingFragment
+            )
         }
 
+        // Open Camera screen when GPS button is clicked
+        gps.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_homeFragment_to_fragmentCamera
+            )
+        }
 
-        editBtn.setOnClickListener { showMessage("Edit Photo") }
+        // Open Camera screen when Camera button is clicked
+        camera.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_homeFragment_to_fragmentCamera
+            )
+        }
 
-        camera.setOnClickListener { showMessage("Camera") }
-        video.setOnClickListener { showMessage("Video") }
+        editBtn.setOnClickListener {
+            showMessage("Edit Photo")
+        }
 
-        qrCode.setOnClickListener { showMessage("QR Code") }
-        directChat.setOnClickListener { showMessage("Direct Chat") }
+        video.setOnClickListener {
+            showMessage("Video")
+        }
 
-        attendence.setOnClickListener { showMessage("Attendence") }
-        camTranslator.setOnClickListener { showMessage("CamTranslator") }
+        qrCode.setOnClickListener {
+            showMessage("QR Code")
+        }
 
-        savedGirl1.setOnClickListener { showMessage("Saved Images") }
-        savedGirl2.setOnClickListener { showMessage("Saved Videos") }
+        directChat.setOnClickListener {
+            showMessage("Direct Chat")
+        }
+
+        attendence.setOnClickListener {
+            showMessage("Attendence")
+        }
+
+        camTranslator.setOnClickListener {
+            showMessage("CamTranslator")
+        }
+
+        savedGirl1.setOnClickListener {
+            showMessage("Saved Images")
+        }
+
+        savedGirl2.setOnClickListener {
+            showMessage("Saved Videos")
+        }
     }
 
     private fun showMessage(text: String) {
-        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            requireContext(),
+            text,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onDestroyView() {

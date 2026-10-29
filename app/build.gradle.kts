@@ -38,6 +38,13 @@ android {
 }
 
 dependencies {
+
+    val cameraXVersion = "1.4.2"
+
+    implementation("androidx.camera:camera-core:$cameraXVersion")
+    implementation("androidx.camera:camera-camera2:$cameraXVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraXVersion")
+    implementation("androidx.camera:camera-view:$cameraXVersion")
     // AndroidX & UI Basics
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
