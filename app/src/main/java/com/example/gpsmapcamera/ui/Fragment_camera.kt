@@ -56,18 +56,18 @@ class FragmentCamera : Fragment() {
     private var isRecordingActive = false
     private var isPaused = false
 
-    private var startTime = 0L
+    private var accumulatedTime = 0L
+    private var segmentStart = 0L
+
     private val timerHandler = Handler(Looper.getMainLooper())
     private val updateTimerRunnable = object : Runnable {
         override fun run() {
-            val millis = System.currentTimeMillis() - startTime
+            val millis = accumulatedTime + (System.currentTimeMillis() - segmentStart)
             val seconds = (millis / 1000) % 60
             val minutes = (millis / (1000 * 60)) % 60
             val hours = (millis / (1000 * 60 * 60)) % 24
 
-            val timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds)
-            binding.timerText?.text = timeString
-
+            _binding?.timerText?.text = String.format("%02d:%02d:%02d", hours, minutes, seconds)
             timerHandler.postDelayed(this, 1000)
         }
     }
@@ -265,7 +265,7 @@ class FragmentCamera : Fragment() {
         topRectangleVideo.visibility = View.VISIBLE
         topRectangleVideo.bringToFront()
 
-        bottomRectangle.visibility = View.GONE
+        bottomRectangle.visibility = View.INVISIBLE
         bottomBarVideo.visibility = View.VISIBLE
         vedioButton.setImageResource(R.drawable.vedio_recording_btn)
         stop?.visibility = View.GONE
@@ -289,8 +289,10 @@ class FragmentCamera : Fragment() {
                 stop?.visibility = View.VISIBLE
                 stopText?.visibility = View.VISIBLE
                 stop?.setImageResource(R.drawable.resume)
+                stopText?.text = "Stop"
 
-                startTime = System.currentTimeMillis()
+                accumulatedTime = 0L
+                segmentStart = System.currentTimeMillis()
                 timerHandler.removeCallbacks(updateTimerRunnable)
                 timerHandler.post(updateTimerRunnable)
             } else {
@@ -299,6 +301,7 @@ class FragmentCamera : Fragment() {
                 stopText?.visibility = View.GONE
 
                 timerHandler.removeCallbacks(updateTimerRunnable)
+                timerText.text = "00:00:00"
                 updateTopBarsVisibility()
             }
         }
@@ -310,15 +313,22 @@ class FragmentCamera : Fragment() {
             if (isPaused) {
                 currentRecording.resume()
                 isPaused = false
-                binding.stop?.setImageResource(R.drawable.resume)
-                binding.stopText?.text = "Stop"
+                segmentStart = System.currentTimeMillis()
+                timerHandler.removeCallbacks(updateTimerRunnable)
+                timerHandler.post(updateTimerRunnable)
+
+                binding.stop.setImageResource(R.drawable.resume)
+                binding.stopText.text = "Stop"
                 binding.vedioButton.setImageResource(R.drawable.during_stop)
                 showMessage("Recording Resumed")
             } else {
                 currentRecording.pause()
                 isPaused = true
-                binding.stop?.setImageResource(R.drawable.play)
-                binding.stopText?.text = "Resume"
+                accumulatedTime += System.currentTimeMillis() - segmentStart
+                timerHandler.removeCallbacks(updateTimerRunnable)
+
+                binding.stop.setImageResource(R.drawable.play)
+                binding.stopText.text = "Resume"
                 showMessage("Recording Paused")
             }
         } else {

@@ -22,19 +22,18 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:text="@string/gps"
-            android:textColor="#6366F1"
+            android:textColor="@color/Purple"
             android:textSize="24sp"
             android:includeFontPadding="false"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <View
+        <ImageView
             android:id="@+id/gps_underline"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="#6366F1"
-            app:layout_constraintEnd_toEndOf="@id/gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_underline"
             app:layout_constraintStart_toStartOf="@id/gps"
             app:layout_constraintTop_toBottomOf="@id/gps" />
 
@@ -44,7 +43,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/averia_serif_libre_bold"
             android:text="@string/map_camera"
-            android:textColor="#262537"
+            android:textColor="@color/black_light"
             android:textSize="22sp"
             android:layout_marginStart="12dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -120,7 +119,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@string/edit_photo"
                     android:layout_marginStart="16dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/guideline"
@@ -196,19 +195,17 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/main_features"
-                android:textColor="#262537"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:includeFontPadding="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rectangle_box" />
 
-            <View
+            <ImageView
                 android:id="@+id/mainfeature_underline"
-                android:layout_width="0dp"
-                android:layout_height="3dp"
-
-                android:background="#6366F1"
-                app:layout_constraintEnd_toEndOf="@id/main_features_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_underline"
                 app:layout_constraintStart_toStartOf="@id/main_features_heading"
                 app:layout_constraintTop_toBottomOf="@id/main_features_heading" />
 
@@ -249,7 +246,7 @@
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/camera"
-                        android:textColor="#262537"
+                        android:textColor="@color/black_light"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -344,12 +341,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/main_features" />
 
-            <View
+            <ImageView
                 android:id="@+id/explore_heading_underline"
-                android:layout_width="0dp"
-                android:layout_height="3dp"
-                android:background="@drawable/purple_line"
-                app:layout_constraintEnd_toEndOf="@id/explore_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_underline"
                 app:layout_constraintStart_toStartOf="@id/explore_heading"
                 app:layout_constraintTop_toBottomOf="@id/explore_heading" />
 
@@ -607,12 +603,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/more_options" />
 
-            <View
+            <ImageView
                 android:id="@+id/saved_underline"
-                android:layout_width="0dp"
-                android:layout_height="3dp"
-                android:background="@drawable/purple_line"
-                app:layout_constraintEnd_toEndOf="@id/saved_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_underline"
                 app:layout_constraintStart_toStartOf="@id/saved_heading"
                 app:layout_constraintTop_toBottomOf="@id/saved_heading" />
 
