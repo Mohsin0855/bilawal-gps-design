@@ -15,12 +15,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
+        <ImageView
             android:id="@+id/backarrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/camera_arrow_left"
-            android:layout_marginStart="14dp"
+            android:src="@drawable/camera_arrow_left"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -29,12 +29,12 @@
             android:id="@+id/setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
+            android:fontFamily="@font/poppins_semibold"
             android:layout_marginStart="14dp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/backarrow"
-            />
+            app:layout_constraintStart_toEndOf="@+id/backarrow"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Unlock Limitless \nPotential"
+            android:text="@string/unlock_limitless_npotential"
             android:textColor="@color/Slate"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/girl"
@@ -143,13 +143,13 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:fontFamily="@font/poppins_semibold"
-            android:drawableStart="@drawable/black_crown"
             android:drawablePadding="2dp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="6dp"
             android:gravity="center"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
+            app:drawableStartCompat="@drawable/black_crown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
@@ -190,6 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -213,6 +214,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_right"
                 android:layout_marginEnd="14dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -233,6 +235,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/calendar_edit"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -255,6 +258,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_right"
                 android:layout_marginEnd="14dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -276,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/location"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -296,6 +301,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_right"
                 android:layout_marginEnd="14dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -318,6 +324,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/temperature"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -341,6 +348,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_right"
                 android:layout_marginEnd="14dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -363,6 +371,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/volume"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -386,6 +395,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_right"
                 android:layout_marginEnd="14dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -407,6 +417,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/finger_scan"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -455,6 +466,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/gallery_setting"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -523,6 +535,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/global"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -557,6 +570,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/share"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -590,6 +604,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/like"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -623,6 +638,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/security_safe"
                 android:layout_marginStart="22dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>

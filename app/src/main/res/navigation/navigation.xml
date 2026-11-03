@@ -24,7 +24,19 @@
         tools:layout="@layout/fragment_languages">
         <action
             android:id="@+id/action_languagesFragment_to_onboarding1Fragment"
-            app:destination="@id/onboarding1Fragment" />
+            app:destination="@id/onboardingContainerFragment" />
+    </fragment>
+
+     <fragment
+        android:id="@+id/onboardingContainerFragment"
+        android:name="com.example.gpsmapcamera.ui.onboarding.OnboardingContainerFragment"
+        android:label="OnboardingContainerFragment"
+        tools:layout="@layout/fragment_onboarding_container">
+        <action
+            android:id="@+id/action_onboardingContainer_to_subscriptionFragment"
+            app:destination="@id/subscriptionFragment"
+            app:popUpTo="@id/onboardingContainerFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -35,6 +47,9 @@
         <action
             android:id="@+id/action_onboarding1Fragment_to_onboarding2Fragment"
             app:destination="@id/onboarding2Fragment" />
+        <action
+            android:id="@+id/action_onboarding1Fragment_self"
+            app:destination="@id/onboarding1Fragment" />
     </fragment>
 
     <fragment
@@ -102,28 +117,6 @@
         android:label="Camera"
         tools:layout="@layout/fragment_camera" />
 
-    <fragment
-        android:id="@+id/template1Fragment"
-        android:name="com.example.gpsmapcamera.ui.templates.Template1Fragment"
-        android:label="Template1"
-        tools:layout="@layout/fragment_template_1" />
 
-    <fragment
-        android:id="@+id/template2Fragment"
-        android:name="com.example.gpsmapcamera.ui.templates.Template2Fragment"
-        android:label="Template2"
-        tools:layout="@layout/fragment_template_2" />
-
-    <fragment
-        android:id="@+id/template3Fragment"
-        android:name="com.example.gpsmapcamera.ui.templates.Template3Fragment"
-        android:label="Template3"
-        tools:layout="@layout/fragment_template_3" />
-
-    <fragment
-        android:id="@+id/template4Fragment"
-        android:name="com.example.gpsmapcamera.ui.templates.Template4Fragment"
-        android:label="Template4"
-        tools:layout="@layout/fragment_template_4" />
 
 </navigation>

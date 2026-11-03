@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Slate">#94a3b8</color>
     <color name="Purple">#6366F1</color>
+    <color name="black_light">#262537</color>
+    <color name="grey">#64748B</color>
 </resources>

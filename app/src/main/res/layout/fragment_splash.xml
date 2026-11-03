@@ -20,6 +20,7 @@
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/geomap"
+        android:contentDescription="@string/todo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -43,7 +44,7 @@
             android:layout_marginStart="25dp"
             android:fontFamily="@font/baloo"
             android:text="@string/gps"
-            android:textColor="#6366F1"
+            android:textColor="@color/Purple"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +65,8 @@
             android:id="@+id/tvAppSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Record Moments with Precision\nLocation"
-            android:textColor="#64748B"
+            android:text="@string/record_moments_with_precision_nlocation"
+            android:textColor="@color/grey"
             android:textSize="18sp"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"

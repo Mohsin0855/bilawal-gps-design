@@ -47,17 +47,7 @@ class TemplatesBottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun selectAndNotify(templates: List<ConstraintLayout>, clickedId: Int) {
         updateTemplateSelection(templates, clickedId)
-
-        val destinationFragmentId = when (clickedId) {
-            R.id.template1 -> R.id.template1Fragment
-            R.id.template2 -> R.id.template2Fragment
-            R.id.template3 -> R.id.template3Fragment
-            R.id.template4 -> R.id.template4Fragment
-            else -> R.id.template1Fragment
-        }
-
-        setFragmentResult("templateRequestKey", bundleOf("selectedTemplateKey" to destinationFragmentId))
-
+        setFragmentResult("templateRequestKey", bundleOf("selectedTemplateKey" to clickedId))
     }
 
     private fun updateTemplateSelection(templates: List<ConstraintLayout>, clickedId: Int) {

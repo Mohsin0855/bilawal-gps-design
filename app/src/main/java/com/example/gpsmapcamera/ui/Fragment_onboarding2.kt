@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.gpsmapcamera.R
 import com.example.gpsmapcamera.databinding.FragmentOnboarding2Binding
 
 class Onboarding2Fragment : Fragment() {
@@ -26,7 +24,7 @@ class Onboarding2Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.next.setOnClickListener {
-            findNavController().navigate(R.id.action_onboarding2Fragment_to_onboarding3Fragment)
+            (parentFragment as? OnboardingContainerFragment)?.navigateNext()
         }
     }
 

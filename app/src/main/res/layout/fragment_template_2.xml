@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|start"
+    android:layout_marginBottom="16dp"
     android:background="@android:color/transparent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alumni_sans_medium"
-            android:text="12:12"
+            android:text="@string/_12_12"
             android:textColor="@color/white"
             android:textSize="50sp"
             android:layout_marginStart="12dp"
@@ -33,6 +36,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/purple_line"
             android:layout_marginStart="8dp"
+            android:contentDescription="@string/todo"
             app:layout_constraintTop_toTopOf="@id/time"
             app:layout_constraintBottom_toBottomOf="@id/time"
             app:layout_constraintStart_toEndOf="@id/time"/>
@@ -49,19 +53,20 @@
                 android:id="@+id/date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="27/08/2024"
+                android:text="@string/_27_08_2024"
                 android:paddingEnd="10dp"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:fontFamily="@font/poppins"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:id="@+id/day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tuesday"
+                android:text="@string/tuesday"
                 android:textSize="12sp"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/white"
@@ -76,6 +81,7 @@
             android:layout_height="16dp"
             android:src="@drawable/grey_location_pin"
             android:layout_marginStart="12dp"
+            android:contentDescription="@string/todo"
             app:layout_constraintTop_toTopOf="@id/description"
             app:layout_constraintBottom_toBottomOf="@id/description"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -84,7 +90,7 @@
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Islamabad"
+            android:text="@string/islamabad"
             android:fontFamily="@font/poppins"
             android:textSize="12sp"
             android:textColor="@color/white"

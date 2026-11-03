@@ -300,7 +300,7 @@
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/video"
-                        android:textColor="#262537"
+                        android:textColor="@color/black_light"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -339,7 +339,7 @@
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/explore_more"
-                android:textColor="#262537"
+                android:textColor="@color/black_light"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/main_features" />
@@ -348,7 +348,7 @@
                 android:id="@+id/explore_heading_underline"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:background="#6366F1"
+                android:background="@drawable/purple_line"
                 app:layout_constraintEnd_toEndOf="@id/explore_heading"
                 app:layout_constraintStart_toStartOf="@id/explore_heading"
                 app:layout_constraintTop_toBottomOf="@id/explore_heading" />
@@ -390,7 +390,7 @@
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/qr_code"
-                        android:textColor="#262537"
+                        android:textColor="@color/black_light"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -439,7 +439,7 @@
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/direct_chat"
-                        android:textColor="#262537"
+                        android:textColor="@color/black_light"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -508,7 +508,7 @@
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/attendence"
-                        android:textColor="#262537"
+                        android:textColor="@color/black_light"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -558,7 +558,7 @@
                         android:layout_marginEnd="6dp"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="@string/camtranslator"
-                        android:textColor="#262537"
+                        android:textColor="@color/black_light"
                         android:textSize="16sp"
                         android:singleLine="true"
                         android:ellipsize="marquee"
@@ -602,7 +602,7 @@
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/saved"
-                android:textColor="#262537"
+                android:textColor="@color/black_light"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/more_options" />
@@ -611,7 +611,7 @@
                 android:id="@+id/saved_underline"
                 android:layout_width="0dp"
                 android:layout_height="3dp"
-                android:background="#6366F1"
+                android:background="@drawable/purple_line"
                 app:layout_constraintEnd_toEndOf="@id/saved_heading"
                 app:layout_constraintStart_toStartOf="@id/saved_heading"
                 app:layout_constraintTop_toBottomOf="@id/saved_heading" />
@@ -655,6 +655,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@string/images"
+                    android:textColor="@color/black_light"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -668,6 +669,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@string/videos"
+                    android:textColor="@color/black_light"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/saved_girl2"
                     app:layout_constraintTop_toBottomOf="@id/saved_girl2" />

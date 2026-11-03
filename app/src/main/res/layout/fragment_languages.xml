@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:padding="16dp"
-    android:fitsSystemWindows="true">>
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/tvSelectLanguageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Language"
+        android:text="@string/select_language"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -25,12 +25,12 @@
         android:id="@+id/btnDone"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:text="Done"
+        android:text="@string/done"
         android:layout_marginEnd="16dp"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:backgroundTint="#94a3b8"
+        android:backgroundTint="@color/Slate"
         app:layout_constraintTop_toTopOf="@+id/tvSelectLanguageTitle"
         app:layout_constraintBottom_toBottomOf="@+id/tvSelectLanguageTitle"
         app:layout_constraintEnd_toEndOf="parent" />

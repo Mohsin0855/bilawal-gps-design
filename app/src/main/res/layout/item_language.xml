@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="English"
+        android:text="@string/english"
         android:textColor="#1e293b"
         android:textSize="14sp"
         android:textStyle="bold"
