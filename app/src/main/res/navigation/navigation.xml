@@ -102,4 +102,28 @@
         android:label="Camera"
         tools:layout="@layout/fragment_camera" />
 
+    <fragment
+        android:id="@+id/template1Fragment"
+        android:name="com.example.gpsmapcamera.ui.templates.Template1Fragment"
+        android:label="Template1"
+        tools:layout="@layout/fragment_template_1" />
+
+    <fragment
+        android:id="@+id/template2Fragment"
+        android:name="com.example.gpsmapcamera.ui.templates.Template2Fragment"
+        android:label="Template2"
+        tools:layout="@layout/fragment_template_2" />
+
+    <fragment
+        android:id="@+id/template3Fragment"
+        android:name="com.example.gpsmapcamera.ui.templates.Template3Fragment"
+        android:label="Template3"
+        tools:layout="@layout/fragment_template_3" />
+
+    <fragment
+        android:id="@+id/template4Fragment"
+        android:name="com.example.gpsmapcamera.ui.templates.Template4Fragment"
+        android:label="Template4"
+        tools:layout="@layout/fragment_template_4" />
+
 </navigation>

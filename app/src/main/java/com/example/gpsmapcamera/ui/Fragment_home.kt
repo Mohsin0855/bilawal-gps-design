@@ -29,6 +29,16 @@ class HomeFragment : Fragment() {
 
         binding.camTranslatorText.isSelected = true
         setupClicks()
+        setupTemplateResultListener()
+    }
+
+    private fun setupTemplateResultListener() {
+        childFragmentManager.setFragmentResultListener("templateRequestKey", viewLifecycleOwner) { _, bundle ->
+            val fragmentId = bundle.getInt("selectedTemplateKey", -1)
+            if (fragmentId != -1) {
+                findNavController().navigate(fragmentId)
+            }
+        }
     }
 
     private fun setupClicks() = with(binding) {
@@ -45,14 +55,12 @@ class HomeFragment : Fragment() {
             )
         }
 
-        // Open Camera screen when GPS button is clicked
         gps.setOnClickListener {
             findNavController().navigate(
                 R.id.action_homeFragment_to_fragmentCamera
             )
         }
 
-        // Open Camera screen when Camera button is clicked
         camera.setOnClickListener {
             findNavController().navigate(
                 R.id.action_homeFragment_to_fragmentCamera
@@ -60,7 +68,8 @@ class HomeFragment : Fragment() {
         }
 
         editBtn.setOnClickListener {
-            showMessage("Edit Photo")
+            val bottomSheet = TemplatesBottomSheetFragment()
+            bottomSheet.show(childFragmentManager, "TemplatesBottomSheet")
         }
 
         video.setOnClickListener {
