@@ -1,4 +1,4 @@
-package com.example.gpsmapcamera.ui.onboarding
+package com.example.gpsmapcamera.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -39,7 +39,6 @@ class OnboardingContainerFragment : Fragment() {
             findNavController().navigate(R.id.action_onboardingContainer_to_subscriptionFragment)
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

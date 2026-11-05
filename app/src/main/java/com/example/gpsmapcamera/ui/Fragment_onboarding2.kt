@@ -1,4 +1,4 @@
-package com.example.gpsmapcamera.ui.onboarding
+package com.example.gpsmapcamera.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

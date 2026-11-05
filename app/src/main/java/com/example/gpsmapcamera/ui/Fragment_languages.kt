@@ -1,5 +1,6 @@
-package com.example.gpsmapcamera.ui.language
+package com.example.gpsmapcamera.ui
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gpsmapcamera.R
-import com.example.gpsmapcamera.adapter.language.LanguageAdapter
+import com.example.gpsmapcamera.adapter.LanguageAdapter
 import com.example.gpsmapcamera.databinding.FragmentLanguagesBinding
+import androidx.core.graphics.toColorInt
 
 class LanguagesFragment : Fragment() {
 
@@ -39,8 +41,8 @@ class LanguagesFragment : Fragment() {
 
         val adapter = LanguageAdapter(languageList) { chosenLang ->
             selectedLanguage = chosenLang
-            binding.btnDone.backgroundTintList = android.content.res.ColorStateList.valueOf(
-                android.graphics.Color.parseColor("#6366F1")
+            binding.btnDone.backgroundTintList = ColorStateList.valueOf(
+                "#6366F1".toColorInt()
             )
         }
 
@@ -51,7 +53,6 @@ class LanguagesFragment : Fragment() {
             if (selectedLanguage.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "Please select a language", Toast.LENGTH_SHORT).show()
             } else {
-                // TODO: Save language preference (SharedPreferences) if needed
                 findNavController().navigate(R.id.action_languagesFragment_to_onboarding1Fragment)
             }
         }

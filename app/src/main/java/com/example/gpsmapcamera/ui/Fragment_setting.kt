@@ -1,5 +1,6 @@
 package com.example.gpsmapcamera.ui
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -9,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.gpsmapcamera.R
 import com.example.gpsmapcamera.databinding.FragmentSettingBinding
+import androidx.core.net.toUri
 
 class SettingsFragment : Fragment() {
 
@@ -32,6 +35,7 @@ class SettingsFragment : Fragment() {
         setupClicks()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupUi() {
         binding.touchLastDescription.text = "Photo Capture"
         binding.galleryDescription2.text = "High"
@@ -47,29 +51,21 @@ class SettingsFragment : Fragment() {
         trial.setOnClickListener { openPremium() }
 
         mapType.setOnClickListener {
-            // TODO: open Map type screen / dialog
         }
         calender.setOnClickListener {
-            // TODO: open Date & time type screen / dialog
         }
         locationFormat.setOnClickListener {
-            // TODO: open Location format screen / dialog
         }
         temperatureUnit.setOnClickListener {
-            // TODO: open Temperature unit screen / dialog
         }
         volume.setOnClickListener {
-            // TODO: open Volume button settings
         }
         touch.setOnClickListener {
-            // TODO: open Touch settings, then update touchLastDescription
         }
         image.setOnClickListener {
-            // TODO: open Image quality dialog, then update galleryDescription2
         }
 
         appLanguages.setOnClickListener {
-            // TODO: e.g. findNavController().navigate(R.id.action_settingFragment_to_languagesFragment)
         }
         share.setOnClickListener { shareApp() }
         rate.setOnClickListener { rateApp() }
@@ -77,7 +73,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun openPremium() {
-        // TODO: e.g. findNavController().navigate(R.id.action_settingFragment_to_subscriptionFragment)
+        findNavController().navigate(R.id.action_fragmentSetting_to_fragmentSubscription)
     }
 
     private fun shareApp() {
@@ -96,12 +92,12 @@ class SettingsFragment : Fragment() {
     private fun rateApp() {
         val pkg = requireContext().packageName
         try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$pkg")))
+            startActivity(Intent(Intent.ACTION_VIEW, "market://details?id=$pkg".toUri()))
         } catch (e: ActivityNotFoundException) {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=$pkg")
+                    "https://play.google.com/store/apps/details?id=$pkg".toUri()
                 )
             )
         }
@@ -110,7 +106,7 @@ class SettingsFragment : Fragment() {
     private fun openPrivacyPolicy() {
         try {
             startActivity(
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://yourwebsite.com/privacy-policy"))
+                Intent(Intent.ACTION_VIEW, "https://yourwebsite.com/privacy-policy".toUri())
             )
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(requireContext(), "No browser found", Toast.LENGTH_SHORT).show()

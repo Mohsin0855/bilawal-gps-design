@@ -19,6 +19,7 @@
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
             android:src="@drawable/camera_arrow_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,10 +28,11 @@
             android:id="@+id/firct_chat_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Direct Chat"
+            android:text="@string/direct_chat"
             android:textSize="20sp"
             android:fontFamily="@font/poppins_semibold"
             android:layout_marginStart="20dp"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/back_btn" />
@@ -40,6 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/clock"
+            android:padding="8dp"
+            android:contentDescription="@string/todo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -59,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter"
-            android:text="This feature uses WhatsApp services to start a conversation with any number included."
+            android:text="@string/this_feature_uses_whatsapp_services_to_start_a_conversation_with_any_number_included"
             android:textSize="12sp"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
@@ -72,10 +76,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter"
-            android:text="Note: It does not store the number"
+            android:text="@string/note_it_does_not_store_the_number"
             android:textSize="12sp"
             android:layout_marginTop="24dp"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="28dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/first_description"
             android:textColor="@color/Purple"/>
@@ -95,9 +99,10 @@
 
         <ImageView
             android:id="@+id/flag_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/flag"
+            android:contentDescription="@string/todo"
             android:layout_marginStart="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -107,8 +112,9 @@
             android:id="@+id/country_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+1"
+            android:text="@string/_1"
             android:layout_marginStart="8dp"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/flag_icon"/>
@@ -119,6 +125,10 @@
             android:layout_height="wrap_content"
             android:src="@drawable/flag_dropdown"
             android:layout_marginStart="6dp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/todo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/country_no" />
@@ -129,6 +139,7 @@
            android:layout_height="wrap_content"
            android:src="@drawable/number_line"
            android:layout_marginStart="6dp"
+           android:contentDescription="@string/todo"
            app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintStart_toEndOf="@id/dropdown_country"/>
@@ -137,27 +148,34 @@
             android:id="@+id/code_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(205)"
+            android:text="@string/_205"
             android:textSize="16sp"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black_light"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginStart="16dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/line"/>
 
-        <TextView
+        <EditText
             android:id="@+id/number"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="XXX-XX-X"
-            android:textColor="@color/Slate"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/xxx_xx_x"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Slate"
             android:textSize="16sp"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginStart="16dp"
+            android:inputType="phone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/code_country"/>
+            app:layout_constraintStart_toEndOf="@id/code_country"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -165,7 +183,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/message_area"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.35"
         android:background="@drawable/write_message_rectangle"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
@@ -173,18 +192,121 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phone_number_area">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Message"
-        android:fontFamily="@font/poppins"
-        android:textSize="16dp"
-        android:textColor="@color/Slate"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <EditText
+            android:id="@+id/messageInput"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:hint="@string/enter_message"
+            android:fontFamily="@font/poppins"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Slate"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cross"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chat_cross"
+            android:padding="8dp"
+            android:contentDescription="@string/todo"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:id="@+id/third_portion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/message_area">
+
+        <ImageView
+            android:id="@+id/radiobutton1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="centerInside"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/chat_radio_button" />
+
+        <TextView
+            android:id="@+id/whatsapp_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:text="@string/whatsapp"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/radiobutton2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="centerInside"
+            android:layout_marginStart="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/chat_radio_button" />
+
+        <TextView
+            android:id="@+id/WA_Business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wa_business"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="16sp"
+            android:layout_marginStart="12dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rectangle_portion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/chat_rectangle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/third_portion">
+
+        <TextView
+            android:id="@+id/rectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_message"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

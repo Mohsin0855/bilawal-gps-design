@@ -61,9 +61,9 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.8.0")
 
     // --- Room Database Dependencies (Using KSP) ---
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.8.4")
+    implementation("androidx.room:room-ktx:2.8.4")
+    ksp("androidx.room:room-compiler:2.8.4")
 
     // --- Coroutines ---
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
@@ -74,4 +74,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
 
     implementation("androidx.viewpager2:viewpager2:1.1.0")
+
+    implementation("com.hbb20:ccp:2.7.3")
 }

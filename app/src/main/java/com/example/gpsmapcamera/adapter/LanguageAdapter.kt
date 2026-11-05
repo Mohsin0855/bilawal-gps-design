@@ -1,11 +1,10 @@
-package com.example.gpsmapcamera.adapter.language
-
+package com.example.gpsmapcamera.adapter
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gpsmapcamera.databinding.ItemLanguageBinding
+import androidx.core.graphics.toColorInt
 
 class LanguageAdapter(
     private val languageList: List<String>,
@@ -21,12 +20,12 @@ class LanguageAdapter(
             binding.rbLanguage.isChecked = isSelected
 
             if (isSelected) {
-                binding.tvLanguageName.setTextColor(Color.parseColor("#6366F1"))
-                binding.rbLanguage.buttonTintList = ColorStateList.valueOf(Color.parseColor("#6366F1"))
+                binding.tvLanguageName.setTextColor("#6366F1".toColorInt())
+                binding.rbLanguage.buttonTintList = ColorStateList.valueOf("#6366F1".toColorInt())
             } else {
                 // Normal state
-                binding.tvLanguageName.setTextColor(Color.parseColor("#1e293b"))
-                binding.rbLanguage.buttonTintList = ColorStateList.valueOf(Color.parseColor("#6C7A89"))
+                binding.tvLanguageName.setTextColor("#1e293b".toColorInt())
+                binding.rbLanguage.buttonTintList = ColorStateList.valueOf("#6C7A89".toColorInt())
             }
 
             binding.root.setOnClickListener {

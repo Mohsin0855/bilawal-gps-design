@@ -35,9 +35,7 @@ class HomeFragment : Fragment() {
     private fun setupTemplateResultListener() {
         childFragmentManager.setFragmentResultListener("templateRequestKey", viewLifecycleOwner) { _, bundle ->
             val fragmentId = bundle.getInt("selectedTemplateKey", -1)
-            if (fragmentId != -1) {
-                findNavController().navigate(fragmentId)
-            }
+            if (fragmentId != -1) {}
         }
     }
 
@@ -68,12 +66,14 @@ class HomeFragment : Fragment() {
         }
 
         editBtn.setOnClickListener {
-            val bottomSheet = TemplatesBottomSheetFragment()
-            bottomSheet.show(childFragmentManager, "TemplatesBottomSheet")
+            findNavController().navigate(R.id.action_homeFragment_to_fragmentCamera)
         }
 
         video.setOnClickListener {
-            showMessage("Video")
+            val bundle = Bundle().apply {
+                putBoolean("is_video_mode", true)
+            }
+            findNavController().navigate(R.id.action_homeFragment_to_fragmentCamera, bundle)
         }
 
         qrCode.setOnClickListener {
@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
         }
 
         directChat.setOnClickListener {
-            showMessage("Direct Chat")
+            findNavController().navigate(R.id.action_homeFragment_to_fragmentDirectChat)
         }
 
         attendence.setOnClickListener {

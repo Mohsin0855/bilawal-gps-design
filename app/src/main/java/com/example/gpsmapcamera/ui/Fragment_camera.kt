@@ -1,6 +1,7 @@
 package com.example.gpsmapcamera.ui
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -38,6 +39,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.gpsmapcamera.R
 import com.example.gpsmapcamera.databinding.FragmentCameraBinding
 import java.io.OutputStream
+import androidx.core.graphics.createBitmap
 
 class FragmentCamera : Fragment() {
 
@@ -61,6 +63,7 @@ class FragmentCamera : Fragment() {
 
     private val timerHandler = Handler(Looper.getMainLooper())
     private val updateTimerRunnable = object : Runnable {
+        @SuppressLint("DefaultLocale")
         override fun run() {
             val millis = accumulatedTime + (System.currentTimeMillis() - segmentStart)
             val seconds = (millis / 1000) % 60
@@ -129,6 +132,12 @@ class FragmentCamera : Fragment() {
         checkPermissions()
         setupTemplateResultListener()
         updateTopBarsVisibility()
+
+        // Check if opened from Home Video button
+        val isVideoModeArg = arguments?.getBoolean("is_video_mode", false) ?: false
+        if (isVideoModeArg) {
+            switchToVideoMode()
+        }
     }
 
     private val updateTopBarsVisibility: () -> Unit = {
@@ -206,7 +215,7 @@ class FragmentCamera : Fragment() {
             startVideoRecording()
         }
 
-        stop?.setOnClickListener {
+        stop.setOnClickListener {
             toggleVideoPauseResume()
         }
 
@@ -214,7 +223,7 @@ class FragmentCamera : Fragment() {
             switchToPhotoMode()
         }
 
-        converterPhotoBack?.setOnClickListener {
+        converterPhotoBack.setOnClickListener {
             switchToPhotoMode()
         }
 
@@ -254,8 +263,8 @@ class FragmentCamera : Fragment() {
         updateTopBarsVisibility()
         bottomRectangle.visibility = View.VISIBLE
         bottomBarVideo.visibility = View.GONE
-        stop?.visibility = View.GONE
-        stopText?.visibility = View.GONE
+        stop.visibility = View.GONE
+        stopText.visibility = View.GONE
         showMessage("Photo Mode")
     }
 
@@ -268,8 +277,8 @@ class FragmentCamera : Fragment() {
         bottomRectangle.visibility = View.INVISIBLE
         bottomBarVideo.visibility = View.VISIBLE
         vedioButton.setImageResource(R.drawable.vedio_recording_btn)
-        stop?.visibility = View.GONE
-        stopText?.visibility = View.GONE
+        stop.visibility = View.GONE
+        stopText.visibility = View.GONE
         showMessage("Video Mode")
     }
 
@@ -277,6 +286,7 @@ class FragmentCamera : Fragment() {
         isRecordingStateActive(isRecording)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun isRecordingStateActive(active: Boolean) {
         isRecordingActive = active
         isPaused = false
@@ -286,10 +296,10 @@ class FragmentCamera : Fragment() {
                 topRectangleVideo.visibility = View.VISIBLE
                 vedioButton.setImageResource(R.drawable.during_stop)
 
-                stop?.visibility = View.VISIBLE
-                stopText?.visibility = View.VISIBLE
-                stop?.setImageResource(R.drawable.resume)
-                stopText?.text = "Stop"
+                stop.visibility = View.VISIBLE
+                stopText.visibility = View.VISIBLE
+                stop.setImageResource(R.drawable.resume)
+                stopText.text = "Stop"
 
                 accumulatedTime = 0L
                 segmentStart = System.currentTimeMillis()
@@ -297,8 +307,8 @@ class FragmentCamera : Fragment() {
                 timerHandler.post(updateTimerRunnable)
             } else {
                 vedioButton.setImageResource(R.drawable.vedio_recording_btn)
-                stop?.visibility = View.GONE
-                stopText?.visibility = View.GONE
+                stop.visibility = View.GONE
+                stopText.visibility = View.GONE
 
                 timerHandler.removeCallbacks(updateTimerRunnable)
                 timerText.text = "00:00:00"
@@ -307,32 +317,29 @@ class FragmentCamera : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun toggleVideoPauseResume() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val currentRecording = recording ?: return
-            if (isPaused) {
-                currentRecording.resume()
-                isPaused = false
-                segmentStart = System.currentTimeMillis()
-                timerHandler.removeCallbacks(updateTimerRunnable)
-                timerHandler.post(updateTimerRunnable)
+        val currentRecording = recording ?: return
+        if (isPaused) {
+            currentRecording.resume()
+            isPaused = false
+            segmentStart = System.currentTimeMillis()
+            timerHandler.removeCallbacks(updateTimerRunnable)
+            timerHandler.post(updateTimerRunnable)
 
-                binding.stop.setImageResource(R.drawable.resume)
-                binding.stopText.text = "Stop"
-                binding.vedioButton.setImageResource(R.drawable.during_stop)
-                showMessage("Recording Resumed")
-            } else {
-                currentRecording.pause()
-                isPaused = true
-                accumulatedTime += System.currentTimeMillis() - segmentStart
-                timerHandler.removeCallbacks(updateTimerRunnable)
-
-                binding.stop.setImageResource(R.drawable.play)
-                binding.stopText.text = "Resume"
-                showMessage("Recording Paused")
-            }
+            binding.stop.setImageResource(R.drawable.resume)
+            binding.stopText.text = "Stop"
+            binding.vedioButton.setImageResource(R.drawable.during_stop)
+            showMessage("Recording Resumed")
         } else {
-            showMessage("Pause/Resume is supported on Android Nougat and above")
+            currentRecording.pause()
+            isPaused = true
+            accumulatedTime += System.currentTimeMillis() - segmentStart
+            timerHandler.removeCallbacks(updateTimerRunnable)
+
+            binding.stop.setImageResource(R.drawable.play)
+            binding.stopText.text = "Resume"
+            showMessage("Recording Paused")
         }
     }
 
@@ -445,7 +452,7 @@ class FragmentCamera : Fragment() {
     }
 
     private fun burnTemplateIntoBitmap(cameraBitmap: Bitmap, templateView: View): Bitmap {
-        val resultBitmap = Bitmap.createBitmap(cameraBitmap.width, cameraBitmap.height, Bitmap.Config.ARGB_8888)
+        val resultBitmap = createBitmap(cameraBitmap.width, cameraBitmap.height)
         val canvas = Canvas(resultBitmap)
 
         canvas.drawBitmap(cameraBitmap, 0f, 0f, null)

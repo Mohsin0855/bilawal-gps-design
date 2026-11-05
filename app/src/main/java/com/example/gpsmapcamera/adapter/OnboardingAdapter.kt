@@ -2,9 +2,9 @@ package com.example.gpsmapcamera.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.gpsmapcamera.ui.onboarding.Onboarding1Fragment
-import com.example.gpsmapcamera.ui.onboarding.Onboarding2Fragment
-import com.example.gpsmapcamera.ui.onboarding.Onboarding3Fragment
+import com.example.gpsmapcamera.ui.Onboarding1Fragment
+import com.example.gpsmapcamera.ui.Onboarding2Fragment
+import com.example.gpsmapcamera.ui.Onboarding3Fragment
 
 class OnboardingAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

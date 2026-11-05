@@ -20,6 +20,7 @@ import com.example.gpsmapcamera.viewmodel.Plan
 import com.example.gpsmapcamera.viewmodel.SubscriptionEvent
 import com.example.gpsmapcamera.viewmodel.SubscriptionViewModel
 import kotlinx.coroutines.launch
+import androidx.core.net.toUri
 
 class SubscriptionFragment : Fragment() {
 
@@ -113,7 +114,7 @@ class SubscriptionFragment : Fragment() {
 
     private fun openUrl(url: String) {
         try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(requireContext(), "No browser found", Toast.LENGTH_SHORT).show()
         }

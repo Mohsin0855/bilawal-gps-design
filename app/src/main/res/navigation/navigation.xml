@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.gpsmapcamera.ui.splash.SplashFragment"
+        android:name="com.example.gpsmapcamera.ui.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/languagesFragment"
-        android:name="com.example.gpsmapcamera.ui.language.LanguagesFragment"
+        android:name="com.example.gpsmapcamera.ui.LanguagesFragment"
         android:label="LanguagesFragment"
         tools:layout="@layout/fragment_languages">
         <action
@@ -27,9 +27,9 @@
             app:destination="@id/onboardingContainerFragment" />
     </fragment>
 
-     <fragment
+    <fragment
         android:id="@+id/onboardingContainerFragment"
-        android:name="com.example.gpsmapcamera.ui.onboarding.OnboardingContainerFragment"
+        android:name="com.example.gpsmapcamera.ui.OnboardingContainerFragment"
         android:label="OnboardingContainerFragment"
         tools:layout="@layout/fragment_onboarding_container">
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/onboarding1Fragment"
-        android:name="com.example.gpsmapcamera.ui.onboarding.Onboarding1Fragment"
+        android:name="com.example.gpsmapcamera.ui.Onboarding1Fragment"
         android:label="fragment_onboarding1"
         tools:layout="@layout/fragment_onboarding1">
         <action
@@ -54,7 +54,7 @@
 
     <fragment
         android:id="@+id/onboarding2Fragment"
-        android:name="com.example.gpsmapcamera.ui.onboarding.Onboarding2Fragment"
+        android:name="com.example.gpsmapcamera.ui.Onboarding2Fragment"
         android:label="fragment_onboarding2"
         tools:layout="@layout/fragment_onboarding2">
         <action
@@ -64,7 +64,7 @@
 
     <fragment
         android:id="@+id/onboarding3Fragment"
-        android:name="com.example.gpsmapcamera.ui.onboarding.Onboarding3Fragment"
+        android:name="com.example.gpsmapcamera.ui.Onboarding3Fragment"
         android:label="fragment_onboarding3"
         tools:layout="@layout/fragment_onboarding3">
         <action
@@ -91,32 +91,50 @@
         android:name="com.example.gpsmapcamera.ui.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
-
         <action
             android:id="@+id/action_homeFragment_to_subscriptionFragment"
             app:destination="@id/subscriptionFragment" />
-
         <action
             android:id="@+id/action_homeFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
-
         <action
             android:id="@+id/action_homeFragment_to_fragmentCamera"
             app:destination="@id/fragmentCamera" />
-
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentDirectChat"
+            app:destination="@id/fragmentDirectChat" />
     </fragment>
 
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.gpsmapcamera.ui.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_fragmentSetting_to_fragmentSubscription"
+            app:destination="@id/subscriptionFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/fragmentCamera"
         android:name="com.example.gpsmapcamera.ui.FragmentCamera"
         android:label="Camera"
         tools:layout="@layout/fragment_camera" />
 
+    <fragment
+        android:id="@+id/fragmentDirectChat"
+        android:name="com.example.gpsmapcamera.ui.Fragment_direct_chat"
+        android:label="DirectChat"
+        tools:layout="@layout/fragment_direct_chat">
+        <action
+            android:id="@+id/action_fragmentDirectChat_to_fragmentHistory"
+            app:destination="@id/fragmentHistory" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/fragmentHistory"
+        android:name="com.example.gpsmapcamera.ui.Fragment_history"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
 
 </navigation>

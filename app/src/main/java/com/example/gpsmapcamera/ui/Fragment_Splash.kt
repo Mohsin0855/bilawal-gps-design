@@ -1,4 +1,4 @@
-package com.example.gpsmapcamera.ui.splash
+package com.example.gpsmapcamera.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.gpsmapcamera.R
 import com.example.gpsmapcamera.databinding.FragmentSplashBinding
+import com.example.gpsmapcamera.ui.splash.SplashViewModel
 
 class SplashFragment : Fragment() {
 
